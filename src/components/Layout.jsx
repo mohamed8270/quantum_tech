@@ -1,25 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Layout = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       <nav className="fixed top-0 w-full z-50 bg-[#f9f9fb]/80 dark:bg-[#1a1c1d]/80 backdrop-blur-xl transition-all duration-300 border-b border-surface-container/50">
         <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
           <div className="flex items-center">
-            <Link to="/">
+            <Link to="/" onClick={closeMobileMenu}>
               <img src="/logo-full.png" alt="Quantum Tech" className="h-5" />
             </Link>
           </div>
+          
           <div className="hidden md:flex items-center space-x-8">
             <Link className="text-[#000000] dark:text-[#ffffff] hover:opacity-70 transition-colors font-medium text-[13px] tracking-tight" to="/">Services</Link>
             <Link className="text-[#5f5e60] dark:text-[#c6c6c6] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium text-[13px] tracking-tight" to="/portfolio">Portfolio</Link>
             <Link className="text-[#5f5e60] dark:text-[#c6c6c6] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium text-[13px] tracking-tight" to="/courses">Courses</Link>
             <Link className="text-[#5f5e60] dark:text-[#c6c6c6] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium text-[13px] tracking-tight" to="/contact">Contact</Link>
           </div>
-          <Link to="/contact" className="bg-primary text-on-primary-fixed px-5 py-2 rounded-full text-sm font-medium hover:opacity-70 transition-opacity duration-300 active:scale-95">
-            Inquire
-          </Link>
+          
+          <div className="hidden md:block">
+            <Link to="/contact" className="bg-primary text-on-primary-fixed px-5 py-2 rounded-full text-sm font-medium hover:opacity-70 transition-opacity duration-300 active:scale-95">
+              Inquire
+            </Link>
+          </div>
+
+          <div className="md:hidden flex items-center">
+            <button 
+              onClick={toggleMobileMenu}
+              className="text-[#000000] dark:text-[#ffffff] p-2 focus:outline-none"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div 
+          className={`md:hidden absolute w-full bg-[#f9f9fb] dark:bg-[#1a1c1d] border-b border-surface-container/50 shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0 py-0'}`}
+        >
+          <div className="flex flex-col space-y-4 px-6">
+            <Link onClick={closeMobileMenu} className="text-[#000000] dark:text-[#ffffff] hover:opacity-70 transition-colors font-medium text-base tracking-tight block" to="/">Services</Link>
+            <Link onClick={closeMobileMenu} className="text-[#5f5e60] dark:text-[#c6c6c6] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium text-base tracking-tight block" to="/portfolio">Portfolio</Link>
+            <Link onClick={closeMobileMenu} className="text-[#5f5e60] dark:text-[#c6c6c6] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium text-base tracking-tight block" to="/courses">Courses</Link>
+            <Link onClick={closeMobileMenu} className="text-[#5f5e60] dark:text-[#c6c6c6] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium text-base tracking-tight block" to="/contact">Contact</Link>
+            <div className="pt-2">
+              <Link onClick={closeMobileMenu} to="/contact" className="bg-primary text-on-primary-fixed px-5 py-2 rounded-full text-sm font-medium hover:opacity-70 transition-opacity duration-300 active:scale-95 inline-block text-center w-max">
+                Inquire
+              </Link>
+            </div>
+          </div>
         </div>
       </nav>
 
