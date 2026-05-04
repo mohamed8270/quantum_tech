@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import profileImg from '../assets/Blazer with orange BG.png';
 
 const Portfolio = () => {
   return (
@@ -11,7 +12,7 @@ const Portfolio = () => {
           <div className="md:col-span-4 lg:col-span-3 space-y-8 md:sticky md:top-28 self-start">
             <div className="space-y-6">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-outline-variant">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj7Ua2F2G84bio60nGuO13yjJaMJiDypZw-N7_yn5ZgKyOdMu-u9I1Xwwgl7m_pEPg2TAwsfArEx4mvBS720w1dnr_j7UCN94IAN5DtC-x96q-LRPmmlqjm-ZwmbxhxFXiKSJ6OInaty4seuWrWflesmFdR6EpBfNb_75ysuYuUfMY-2e2txC4wL-XDq3Ww1mus9dQuCPeboUnfDa7cJIcsvVozt1RK2ROp5vbCxnxqOyVhQRJpnP2znGcF-YTvTm3NtDNJMkZqA" alt="Mohamed Ibrahim" className="w-full h-full object-cover grayscale" />
+                <img src={profileImg} alt="Mohamed Ibrahim" className="w-full h-full object-cover grayscale" />
               </div>
               
               <div>
@@ -20,7 +21,7 @@ const Portfolio = () => {
                   Open to work
                 </div>
                 <h1 className="text-3xl font-semibold tracking-tight">Mohamed Ibrahim</h1>
-                <p className="text-lg text-secondary font-medium mt-1">Senior Full-Stack Developer</p>
+                <p className="text-lg text-secondary font-medium mt-1">Next-Gen Software Engineer</p>
               </div>
 
               <div className="text-sm text-secondary leading-relaxed font-light">
@@ -60,7 +61,7 @@ const Portfolio = () => {
             
             <div className="pt-6">
               <h3 className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-4">Core Stack</h3>
-              <div className="flex flex-wrap gap-3 text-secondary text-xl">
+              <div className="flex flex-wrap gap-3 text-secondary text-xl items-center">
                  <i className="devicon-javascript-plain" title="JavaScript"></i>
                  <i className="devicon-typescript-plain" title="TypeScript"></i>
                  <i className="devicon-dart-plain" title="Dart"></i>
@@ -71,6 +72,19 @@ const Portfolio = () => {
                  <i className="devicon-mongodb-plain" title="MongoDB"></i>
                  <i className="devicon-postgresql-plain" title="PostgreSQL"></i>
                  <i className="devicon-amazonwebservices-plain-wordmark" title="AWS"></i>
+                 
+                 <div className="flex gap-1.5 items-center text-xs font-medium bg-surface-container-low px-2 py-1 rounded-md border border-outline-variant text-on-surface">
+                   <i className="devicon-google-plain text-primary" title="Google Antigravity"></i>
+                   Antigravity
+                 </div>
+                 <div className="flex gap-1.5 items-center text-xs font-medium bg-surface-container-low px-2 py-1 rounded-md border border-outline-variant text-on-surface">
+                   <span className="material-symbols-outlined text-[14px] text-primary">psychology</span>
+                   Gemini Pro
+                 </div>
+                 <div className="flex gap-1.5 items-center text-xs font-medium bg-surface-container-low px-2 py-1 rounded-md border border-outline-variant text-on-surface">
+                   <span className="material-symbols-outlined text-[14px] text-primary">smart_toy</span>
+                   Agentic AI
+                 </div>
               </div>
               <p className="text-xs text-secondary mt-3 italic">And many more modern tools...</p>
             </div>
