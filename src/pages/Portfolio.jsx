@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import profileImg from '../assets/Blazer with orange BG.png';
+import profileImg from '../assets/ibu passport size.jpeg';
 
 const Portfolio = () => {
   return (
@@ -12,7 +12,7 @@ const Portfolio = () => {
           <div className="md:col-span-4 lg:col-span-3 space-y-8 md:sticky md:top-28 self-start">
             <div className="space-y-6">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-outline-variant">
-                <img src={profileImg} alt="Mohamed Ibrahim" className="w-full h-full object-cover grayscale" />
+                <img src={profileImg} alt="Mohamed Ibrahim" className="w-full h-full object-cover" />
               </div>
               
               <div>
